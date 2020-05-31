@@ -1,2 +1,2 @@
-# BEAN2020June
-Windows version for BEAN Workshop
+# BEAD2020June
+Windows version for BEAD Workshop
