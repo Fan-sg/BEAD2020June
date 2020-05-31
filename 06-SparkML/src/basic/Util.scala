@@ -16,8 +16,8 @@ object Util {
 
   val sc = spark.sparkContext
 
-  val PATH_MOVIES = "/home/cloudera/git/BEAD2020/06-SparkML/data/movielens/u.item"
-  val PATH_USERS =  "/home/cloudera/git/BEAD2020/06-SparkML/data/movielens/u.user"
+  val PATH_MOVIES = "C:/dev/github/BEAN2020June/06-SparkML/data/movielens/u.item"
+  val PATH_USERS =  "C:/dev/github/BEAN2020June/06-SparkML/data/movielens/u.user"
 
   def getMovieData() : RDD[String] = {
     return null
@@ -78,7 +78,7 @@ object Util {
   }
 
   def getUserData() : RDD[String] = {
-    var user_data = Util.spark.sparkContext.textFile("/home/cloudera/git/BEAD-SEP19/W07-SparkML/data/movielens/u.user")
+    var user_data = Util.spark.sparkContext.textFile("C:/dev/github/BEAN2020June/06-SparkML/data/movielens/u.user")
     return user_data
   }
 
