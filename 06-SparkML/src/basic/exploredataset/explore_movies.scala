@@ -15,7 +15,7 @@ object explore_movies {
   }
 
   def main(args: Array[String]) {
-    val sc = new SparkContext("local[2]", "Explore Users in Movie Dataset")
+    val sc = new SparkContext("local[*]", "Explore Users in Movie Dataset")
 
     val raw_title = basic.Util.getMovieDataDF().select("name")
     raw_title.show()
