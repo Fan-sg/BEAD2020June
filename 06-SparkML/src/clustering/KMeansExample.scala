@@ -20,5 +20,6 @@ object KMeansExample {
     val WSSSE = model.computeCost(dataset)
     println("Cluster centers: ")
     model.clusterCenters.foreach(println)
+    println("WSSSE:", WSSSE)
   }
 }
