@@ -17,7 +17,13 @@ import org.apache.spark.sql.functions.mean
 import org.apache.spark.sql.functions.udf
 import org.apache.spark.sql.types.DoubleType
 
+import org.apache.log4j.Level
+import org.apache.log4j.Logger
+
 object FeatureEngg {
+  
+  Logger.getLogger("org").setLevel(Level.OFF)
+  
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf()
       .setMaster("local[*]")
@@ -266,10 +272,13 @@ object FeatureEngg {
     println("Mean Squared Error: " + mse)
 
   }
-  val coder = (id: String) => id.substring(0, 2) match {
-    case "FD" => "Food"
-    case "NC" => "Non-Consumable"
-    case "DR" => "Drinks"
+  val coder = (id: Any) => id.isInstanceOf[String] match {
+    case false => "NA"
+    case true => id.asInstanceOf[String].substring(0, 2) match {
+      case "FD" => "Food"
+      case "NC" => "Non-Consumable"
+      case "DR" => "Drinks"
+    }
   }
   val coder2 = (value: Int) => 2013 - value
   val coder3 = (id: String) => id match {
@@ -339,6 +348,7 @@ object FeatureEngg {
       case "High"   => if (jobNo == 0) 1.0 else 0.0
       case "Small"  => if (jobNo == 1) 1.0 else 0.0
       case "Medium" => if (jobNo == 2) 1.0 else 0.0
+      case null => if (jobNo == 2) 1.0 else 0.0
     }
     case "Outlet_Location_Type" => columnValue match {
       case "Tier 1" => if (jobNo == 0) 1.0 else 0.0
