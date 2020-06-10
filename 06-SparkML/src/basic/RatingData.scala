@@ -24,7 +24,7 @@ object RatingData {
 
     val rating_df = spark.read.format("com.databricks.spark.csv")
       .option("delimiter", "\t").schema(customSchema)
-      .load("C:/dev/github/BEAN2020June/06-SparkML/data/movielens/u.data")
+      .load("D:/dev/GitHub/BEAD2020June/06-SparkML/data/movielens/u.data")
     rating_df.createOrReplaceTempView("df")
     val num_ratings = rating_df.count()
     val num_movies = Util.getMovieDataDF().count()

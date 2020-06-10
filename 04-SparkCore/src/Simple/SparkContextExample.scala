@@ -6,7 +6,7 @@ import org.apache.spark.SparkContext
 object SparkContextExample {
     def main(args: Array[String]) {
     val logFile =
-        "C:/dev/github/BEAN2020June/04-SparkCore/data/names.txt"
+        "D:/dev/GitHub/BEAD2020June/04-SparkCore/data/names.txt"
     val conf = new SparkConf()
              .setAppName("RDD Examples").setMaster("local[*]")
     val sc = new SparkContext(conf)

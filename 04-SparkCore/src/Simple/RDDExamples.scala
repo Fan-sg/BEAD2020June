@@ -11,7 +11,7 @@ object RDDExamples extends App {
   val conf = new SparkConf()
     .setAppName("RDD Examples").setMaster("local[2]")
   val sc = new SparkContext(conf)
-  val words = sc.textFile("C:/dev/github/BEAN2020June/04-SparkCore/data/Gitanjali.txt").flatMap(word => word.toSeq).take(50)
+  val words = sc.textFile("D:/dev/GitHub/BEAD2020June/04-SparkCore/data/Gitanjali.txt").flatMap(word => word.toSeq).take(50)
   println(words.length)
   println(words.distinct.length)
   println(words.startsWith("T"))

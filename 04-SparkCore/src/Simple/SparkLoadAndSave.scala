@@ -36,7 +36,7 @@ object SparkLoadAndSave {
    
     
     // Loading JSON File
-    val jsonInput = sc.textFile("C:/dev/github/BEAN2020June/04-SparkCore/data/people.json")
+    val jsonInput = sc.textFile("D:/dev/GitHub/BEAD2020June/04-SparkCore/data/people.json")
     val result1 = jsonInput.flatMap(record => {
       try {
         Some(mapper.readValue(record, classOf[Person]))
@@ -45,11 +45,11 @@ object SparkLoadAndSave {
       }
     })
     result1.filter(person => person.age > 15).map(mapper.writeValueAsString(_)).
-      saveAsTextFile("C:/dev/github/BEAN2020June/04-SparkCore/data/outputFile")
+      saveAsTextFile("D:/dev/GitHub/BEAD2020June/04-SparkCore/data/outputFile")
 
     // Loading CSV
 
-    val input1 = sc.textFile("C:/dev/github/BEAN2020June/04-SparkCore/data/stocks.csv")
+    val input1 = sc.textFile("D:/dev/GitHub/BEAD2020June/04-SparkCore/data/stocks.csv")
     val result2 = input1.flatMap { line =>
       val reader = new CSVReader(new StringReader(line))
       reader.readAll().asScala.toList.map(x => Stocks(x(0), x(5).toLong))

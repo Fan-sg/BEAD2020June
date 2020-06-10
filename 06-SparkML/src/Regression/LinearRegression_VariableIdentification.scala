@@ -21,12 +21,12 @@ object LinearRegression_VariableIdentification {
       sqlContext.read.format("com.databricks.spark.csv")
         .option("header", "true")
         .option("inferSchema","true")
-        .load("C:/dev/github/BEAN2020June/06-SparkML/data/regression/Sales_Train.csv")
+        .load("D:/dev/GitHub/BEAD2020June/06-SparkML/data/regression/Sales_Train.csv")
     val sales_data_test =
       sqlContext.read.format("com.databricks.spark.csv")
         .option("header", "true")
         .option("inferSchema","true")
-        .load("C:/dev/github/BEAN2020June/06-SparkML/data/regression/Sales_Test.csv")
+        .load("D:/dev/GitHub/BEAD2020June/06-SparkML/data/regression/Sales_Test.csv")
     val sales_data_union = sales_data_train.unionAll(sales_data_test)
     val sales_data = sales_data_union.withColumn("Item_Outlet_Sales",
       sales_data_union.col("Item_Outlet_Sales").cast(DoubleType))
