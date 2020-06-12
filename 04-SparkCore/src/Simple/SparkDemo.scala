@@ -11,5 +11,6 @@ object SparkDemo {
     val data = sc.textFile(stocksPath, 2)
     val totalLines = data.count()
     println("Total number of Lines: %s".format(totalLines))
+
   }
 }

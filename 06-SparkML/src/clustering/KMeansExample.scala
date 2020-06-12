@@ -13,7 +13,7 @@ object KMeansExample {
         .appName("KMeansExample").getOrCreate()
     // loads data
     val dataset = spark.read.format("libsvm").load("D:/dev/GitHub/BEAD2020June/06-SparkML/data/clustering/KMeansExample.txt")
-    // tain a k-means model
+    // train a k-means model
     val kmeans = new KMeans().setK(2).setSeed(1L)
     val model = kmeans.fit(dataset)
     // evaluate clustering by computing within set sum of squared errors
